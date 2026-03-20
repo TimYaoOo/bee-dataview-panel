@@ -1,0 +1,38 @@
+{
+  "name": "bee-dataview-panel",
+  "version": "0.1.0",
+  "private": false,
+  "main": "dist/lib/bee-dataview-panel.umd.js",
+  "module": "dist/lib/bee-dataview-panel.es.js",
+  "types": "dist/lib/index.d.ts",
+  "unpkg": "dist/lib/bee-dataview-panel.umd.js",
+  "files": [
+    "dist/lib"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/bee-dataview-panel.es.js",
+      "require": "./dist/lib/bee-dataview-panel.umd.js"
+    },
+    "./style.css": "./dist/lib/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "yarn build:app",
+    "build:app": "vite build",
+    "build:types": "mkdir -p dist/lib/types && cp src/lib/index.d.ts dist/lib/index.d.ts && cp src/lib/types/designer.d.ts dist/lib/types/designer.d.ts && cp src/lib/types/schema.d.ts dist/lib/types/schema.d.ts",
+    "build:lib": "vite build -c vite.lib.config.ts && yarn build:types",
+    "build:all": "yarn build:app && yarn build:lib",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^2.7.16"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue2": "^2.3.3",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vue-template-compiler": "^2.7.16"
+  }
+}
